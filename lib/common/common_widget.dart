@@ -28,89 +28,126 @@ class CommonWidgets {
             children: [
               Row(
                 children: [
-                  Text(thumbnailUrl),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.network(
+                      thumbnailUrl,
+                      height: appConfig.deviceHeight(3),
+                      width: appConfig.deviceWidth(6),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                   SizedBox(
-                    width: appConfig.deviceWidth(2),
+                    width: appConfig.deviceWidth(1),
                   ),
                   Text(
                     author,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: appConfig.textSizeScale(18)),
+                        fontSize: appConfig.textSizeScale(12)),
                   ),
                   SizedBox(
-                    width: appConfig.deviceWidth(2),
+                    width: appConfig.deviceWidth(1),
                   ),
                   Text(
                     community,
                     style: TextStyle(
-                        fontSize: appConfig.textSizeScale(18),
+                        fontSize: appConfig.textSizeScale(12),
                         color: AppColors.textgrey),
                   ),
                   SizedBox(
-                    width: appConfig.deviceWidth(2),
+                    width: appConfig.deviceWidth(1),
                   ),
                   Text(time,
                       style: TextStyle(
-                          fontSize: appConfig.textSizeScale(18),
+                          fontSize: appConfig.textSizeScale(12),
                           color: AppColors.textgrey)),
                 ],
+              ),
+              SizedBox(
+                height: appConfig.deviceHeight(2),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(post),
+                  Image.network(
+                    post,
+                    height: appConfig.deviceHeight(15),
+                    width: appConfig.deviceWidth(25),
+                    fit: BoxFit.fill,
+                  ),
                   SizedBox(
                     width: appConfig.deviceWidth(10),
                   ),
                   Expanded(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           title,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: appConfig.textSizeScale(18)),
+                              fontSize: appConfig.textSizeScale(10)),
                         ),
-                        Text(description),
-                        Divider(
-                          color: AppColors.grey,
-                          height: appConfig.deviceHeight(2),
-                          indent: 0.1,
+                        Text(
+                          description,
+                          style:
+                              TextStyle(fontSize: appConfig.textSizeScale(10)),
                         ),
-                        IntrinsicHeight(
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.arrow_drop_up_sharp,
-                                color: AppColors.grey,
-                              ),
-                              SizedBox(
-                                width: appConfig.deviceWidth(2),
-                              ),
-                              Text(votes),
-                              SizedBox(
-                                width: appConfig.deviceWidth(8),
-                              ),
-                              VerticalDivider(
-                                color: AppColors.grey,
-                                thickness: 1,
-                              ),
-                              SizedBox(
-                                width: appConfig.deviceWidth(8),
-                              ),
-                              Icon(Icons.chat_bubble, color: AppColors.grey),
-                              SizedBox(
-                                width: appConfig.deviceWidth(2),
-                              ),
-                              Text(comments),
-                            ],
-                          ),
-                        )
                       ],
                     ),
-                  )
+                  ),
+                ],
+              ),
+              Divider(
+                color: AppColors.grey,
+                thickness: 1,
+                indent: appConfig.deviceWidth(35),
+                endIndent: appConfig.deviceWidth(2),
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: appConfig.deviceWidth(40),
+                  ),
+                  IntrinsicHeight(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.arrow_drop_up_sharp,
+                          color: AppColors.grey,
+                        ),
+                        SizedBox(
+                          width: appConfig.deviceWidth(2),
+                        ),
+                        Text(
+                          votes,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: appConfig.textSizeScale(10)),
+                        ),
+                        SizedBox(
+                          width: appConfig.deviceWidth(8),
+                        ),
+                        VerticalDivider(
+                          color: AppColors.grey,
+                          thickness: 1,
+                        ),
+                        SizedBox(
+                          width: appConfig.deviceWidth(8),
+                        ),
+                        Icon(Icons.chat_bubble, color: AppColors.grey),
+                        SizedBox(
+                          width: appConfig.deviceWidth(2),
+                        ),
+                        Text(
+                          comments,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: appConfig.textSizeScale(10)),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               )
             ],
